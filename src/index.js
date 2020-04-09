@@ -23,23 +23,22 @@ const itemsAll = items.map(item => {
         if(e.target.checked) {
             body.classList.remove('light-theme');
             body.classList.add('dark-theme');
-            localStorage.setItem('theme', 'dark-theme')
+            // localStorage.setItem('theme', 'dark-theme')
+            localStorage.setItem('theme', JSON.stringify('dark-theme'))
         }
+        
         else {
             body.classList.remove('dark-theme');
             body.classList.add('light-theme');
-            localStorage.setItem('theme', 'light-theme')
+            // localStorage.setItem('theme', 'light-theme')
+            localStorage.setItem('theme', JSON.stringify('light-theme'))
         }
     };
 
-    // const Theme = {
-    //     LIGHT: 'light-theme',
-    //     DARK: 'dark-theme',
-    //   };
-
-     const newTheme = localStorage.getItem('theme');
-    //  console.log(newTheme);
-     if (newTheme === "dark-theme") {
+    //  const newTheme = localStorage.getItem("theme");
+     const newTheme = JSON.parse(localStorage.getItem("theme"));
+    //  console.log(newTheme); 
+    if (newTheme === "dark-theme") {
         body.classList.add('dark-theme');
         input.checked = true;
-     };
+    };
